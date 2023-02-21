@@ -1,0 +1,21 @@
+{
+  "name": "Chess.com Voice Commentary (simplified)",
+  "version": "1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "description": "Reading chess moves.",
+  "content_scripts": [{
+    "matches": ["https://www.chess.com/*"],
+    "js": ["contentScript.js"]
+  }],
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "web_accessible_resources": [{
+    "resources": ["mp3/*"],
+    "matches": ["https://www.chess.com/*"]
+  }],  
+  "manifest_version": 3
+}
+
