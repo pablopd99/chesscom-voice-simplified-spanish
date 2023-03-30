@@ -1,9 +1,9 @@
 const pieceCodeToName = {
-  'K': 'king',
-  'Q': 'queen',
-  'R': 'rook',
-  'B': 'bishop',
-  'N': 'knight',
+  'R': 'king',
+  'D': 'queen',
+  'T': 'rook',
+  'A': 'bishop',
+  'C': 'knight',
 };
 
 const matchSan = (san) => {
