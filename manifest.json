@@ -1,5 +1,5 @@
 {
-  "name": "Chess.com Voice Commentary (simplified)",
+  "name": "Chess.com Voice Commentary Spanish (simplified)",
   "version": "1.0",
   "background": {
     "service_worker": "background.js"

@@ -9,7 +9,7 @@ const pieceCodeToName = {
 const matchSan = (san) => {
   // pattern for SAN based on this thread https://stackoverflow.com/questions/40007937/regex-help-for-chess-moves-san
   // with modifications
-  const pattern = /(?:(O-O(?:-O)?)|(?:([NBRQK])?([a-h])?([1-8])?(x)?([a-h])([1-8])(=[NBRQK])?))(\+)?(#)?/;
+  const pattern = /(?:(O-O(?:-O)?)|(?:([CATDR])?([a-h])?([1-8])?(x)?([a-h])([1-8])(=[CATDR])?))(\+)?(#)?/;
   return san.match(pattern);
 }
 
