@@ -71,7 +71,6 @@ class AudioSequence {
     this.listeners = {};
     this.audio = null;
   }
-
   _playNext() {
     if (!this.paths.length) {
       if (this.listeners['ended'] && typeof this.listeners['ended'] === 'function') {
@@ -80,15 +79,17 @@ class AudioSequence {
     } else {
       this.audio = new Audio();
       this.audio.addEventListener('canplaythrough', () => {
-        this.audio.addEventListener('ended', () => {
-          chrome.runtime.sendMessage({type: 'clearPromptInteraction'})
-            .catch((err) => {
-              console.log("Exception while sending message 'clearPromptInteraction'", err);
-            })
-            .then(() => {
-              this._playNext()
-            });
+        // Ajusta el tiempo de solapamiento en milisegundos aquí (por ejemplo, 40 ms)
+        const overlapTime = 400;
+
+        // Programa el inicio del siguiente archivo de audio antes de que el actual termine
+        this.audio.addEventListener('timeupdate', () => {
+          if (this.audio.currentTime >= this.audio.duration - overlapTime / 1000) {
+            this.audio.removeEventListener('timeupdate', () => {});
+            this._playNext();
+          }
         });
+
         this.audio.volume = this.volume;
         this.audio.play()
           .catch(err => {
