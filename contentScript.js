@@ -80,7 +80,7 @@ class AudioSequence {
       this.audio = new Audio();
       this.audio.addEventListener('canplaythrough', () => {
         // Ajusta el tiempo de solapamiento en milisegundos aquí (por ejemplo, 40 ms)
-        const overlapTime = 400;
+        const overlapTime = 450;
 
         // Programa el inicio del siguiente archivo de audio antes de que el actual termine
         this.audio.addEventListener('timeupdate', () => {
